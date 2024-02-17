@@ -13,6 +13,7 @@ class Curva{
         ctx.beginPath();
         for (let x = 0; x < canvas.width; x++) {
             let y = this.funcion(x, this.dx);
+            ctx.strokeStyle = 'white';
             ctx.lineTo(x, y);
         }
         ctx.stroke();
@@ -23,6 +24,7 @@ class Curva{
 }
 
 const funcionesSinuidales = [
+    // tus funciones aquíconst funcionesSinuidales = [
     (x,dx) => 100 * Math.sin(.05*x+dx)+300,
     (x,dx) => 100 * Math.cos(.01*x+dx)+300+100*Math.sin(.05*x+dx),
     (x,dx) => 100 * Math.sin(.03*x+dx)+300+100*Math.cos(.02*x+dx),
@@ -52,11 +54,13 @@ function generarCurvas(){
 }
 
 function dibujarCurvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < curvas.length; i++) {
         curvas[i].dibujar();
         curvas[i].incrementarFase();
     }
+    // Llena el canvas con un color semi-transparente
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function animate(){
