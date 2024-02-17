@@ -41,7 +41,7 @@ function generarCurvas(){
     const arrayFase = linSpace(0, 2*Math.PI, 5);
     const arrayDesplazamiento = linSpace(0, 100, 5);
     for(let i = 0; i < 5; i++){
-        curvas.push(new Curva(arrayAmplitud[i], arrayPeriodo[i], arrayFase[i], arrayDesplazamiento[i] + i * 100));
+        curvas.push(new Curva(arrayAmplitud[i], arrayPeriodo[i], arrayFase[i], arrayDesplazamiento[i]));
     }
 }
 
